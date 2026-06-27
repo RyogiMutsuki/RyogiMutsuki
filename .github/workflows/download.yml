@@ -1,0 +1,38 @@
+name: Download and Upload to Release
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Download URL"
+        required: true
+        type: string
+        
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download file
+        run: |
+          mkdir download
+          cd download
+          wget "${{ inputs.url }}"
+
+      - name: Ensure Release Exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view download >/dev/null 2>&1 || \
+          gh release create download \
+            --title "Download" \
+            --notes "Auto generated"
+
+      - name: Upload Assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload download download/* --clobber
