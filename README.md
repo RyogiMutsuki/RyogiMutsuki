@@ -80,6 +80,6 @@ Tauri / Avalonia
 <details>
 <summary>页面使用的开源项目</summary>  
 
-  [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats/blob/master/docs/readme_cn.md)
+  [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats/blob/master/readme.md)
 
 </details>
