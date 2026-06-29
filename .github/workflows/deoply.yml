@@ -55,9 +55,14 @@ jobs:
           restore-keys: |
             og-data-
 
-
+      - name: "Install dependency"
+        run: pnpm install --no-frozen-lockfile
+        
+      - name: "build page"
+        run: vercel build
+        
       - name: "deploy build"
-        run: vercel deploy --prod
+        run: vercel deploy --prod --prebuilt
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_PROJECT_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
