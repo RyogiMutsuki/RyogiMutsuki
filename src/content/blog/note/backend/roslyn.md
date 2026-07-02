@@ -34,7 +34,29 @@ catalog: true
 
 当然有，既然反射有运行时开销，那么我们可以丢到编译期完成。 !!反正编译本身就比较吃 CPU 和时间，把 Source Generator 丢到编译期跑也不会死。!!
 
-<!--
+## 快速上手
+
+首先，我们需要新建一个控制台应用程序，然后在 Program.cs 写下以下内容。
+
+```csharp
+namespace ConsoleApp;
+
+public partial class Program;
+
+```
+
+然后，我们需要再建一个类库项目，目标框架设置为 netstandard2.0。
+
+使用以下命令添加必须的依赖。
+
+```bash
+dotnet add package Microsoft.CodeAnalysis.CSharp
+dotnet add package Microsoft.CodeAnalysis.Analyzers # 这个是可选的，也就是装不装无所谓。
+```
+
+然后在 ProgramMainSourceGenerator.cs 写下以下内容。
+
+```csharp
 using System.Text;
 using Microsoft.CodeAnalysis;
 
@@ -59,8 +81,47 @@ public class ProgramMainSourceGenerator: IIncrementalGenerator
     }
 }
 
+```
+
+最后在需要生成代码的 csproj 写下以下内容
+
+```xml
+<ItemGroup>
+    <ProjectReference Include="..\SourceGenerators\SourceGenerators.csproj" OutputItemType="Analyzer" 
+                    ReferenceOutputAssembly="false" />
+</ItemGroup>
+```
+
+最后，我们在终端 cd 到控制台项目，运行 dotnet run。
+
+```bash
+PS D:\TsukishiroMei\Projects\RoslynExample\ConsoleApp> dotnet run
+D:\TsukishiroMei\Projects\RoslynExample\SourceGenerators\ProgramMainSourceGenerator.cs(7,14): warning RS1036: “SourceGenerators.ProgramMainSourceGenerator”: 包含分析器或源生成器的项目应指定属性“<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>”
+Hello Tsukishiro Mei!
+```
+
+是的很神奇，你的项目不仅没有编译失败，还多了一行输出。
+
+## 发生了什么？
+
+在此项目中，我们添加了一个源生成器，并让这个源生成器生成了一个静态的 Main 方法，接受 string[]。
+
+现在，我们在引用 Source Generator 的项目 csproj PropertyGroup 添加 `<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>`，然后转到 obj/bin/构建配置/目标框架/generated/SourceGenerators/SourceGenerators.ProgramMainSourceGenerator 下查看生成的 Program.g.cs
+
+你就会看到 Source Generator 为你生成了一个 partial class Program，里面包含了一个 Main 方法。
+
+```csharp
 namespace ConsoleApp;
 
-public partial class Program;
+public partial class Program{
+    
+    public static void Main(string[] args) => System.Console.WriteLine("Hello Tsukishiro Mei!");
+}
 
--->
+```
+
+:::TIP
+
+如果你用的是 Rider，也可以在依赖项 -> 源生成器上看到 Source Generator 上看生成输出，不过我写这篇文章的时候用的是 VSCode。
+
+:::
