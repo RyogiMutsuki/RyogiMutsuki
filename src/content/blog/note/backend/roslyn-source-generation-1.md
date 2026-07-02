@@ -9,7 +9,7 @@ tags:
   - 源生成器
   - 元编程
   - 预处理
-draft: true
+draft: false
 catalog: true
 ---
 ## 元编程是什么
@@ -33,6 +33,16 @@ catalog: true
 既然反射有开销，那有什么办法解决呢？
 
 当然有，既然反射有运行时开销，那么我们可以丢到编译期完成。 !!反正编译本身就比较吃 CPU 和时间，把 Source Generator 丢到编译期跑也不会死。!!
+
+## 什么是 Source Generator？
+
+要了解这个，我们需要先知道 C# 的编译器，也就是 Roslyn。
+
+因为 Roslyn 设计之初采用了编译器即服务的设计理念，这也允许开发者调用 Roslyn 的 API 来对代码进行处理。
+
+Source Generator 就是运行在 Roslyn 的一组分析程序，它将!!人类不可读的!!代码作为输入，以便你可以进行分析并根据预设规则进行处理，并产生输出。
+
+!!并且你也确确实实可以用源生成器来分析代码，并根据预设规则创建警告和错误，这些内容也会被投射到 IDE 上。!!
 
 ## 快速上手
 
@@ -117,8 +127,15 @@ public partial class Program{
     
     public static void Main(string[] args) => System.Console.WriteLine("Hello Tsukishiro Mei!");
 }
-
 ```
+
+回看我们之前写的 Source Generator，你会发现 Source Generator 输出的正是我们在 StringBuilder 写的东西。
+
+这里我们用的是比较基础的 RegisterPostInitializationOutput，它假定生成的代码和你写的代码没有关系，所以也就不需要碰一些相对复杂的任务。
+
+## 小结
+
+~本章我们了解了源生成器的基本概念，现在你可以去写源生成器了~
 
 :::TIP
 
