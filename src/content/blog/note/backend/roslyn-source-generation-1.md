@@ -8,7 +8,6 @@ tags:
   - 后端笔记
   - 源生成器
   - 元编程
-  - 预处理
 draft: false
 catalog: true
 ---
@@ -54,6 +53,10 @@ namespace ConsoleApp;
 public partial class Program;
 
 ```
+
+::warning
+使用源生成的类/方法必须标记为 partial，否则会因为重复声明而报错
+::
 
 然后，我们需要再建一个类库项目，目标框架设置为 netstandard2.0。
 

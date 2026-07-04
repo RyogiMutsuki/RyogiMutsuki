@@ -279,6 +279,12 @@ friends:
 # 取消下方注释即可启用公告示例：
 # -----------------------------------------------------------------------------
 announcements:
+    - id: friend-link
+      title: "关于友链添加的一些注意事项"
+      type: info
+      priority: 10
+      publishDate: 2026-07-04 17:19:00
+      content: "如果提交友链申请的时候没有得到答复，则很可能是站长忘了，请在 https://github.com/RyogiMutsuki/RyogiMutsuki 敲一下她。"
   # - id: welcome-2026 # 唯一标识符
   #   title: 2026 年新年快乐! # 公告标题
   #   content: 新年快乐! 感谢大家一直以来的支持~ # 公告内容
