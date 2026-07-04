@@ -61,6 +61,12 @@ Tauri / Avalonia
 ### [新站](https://www.20260712.xyz)
 ### [旧站](https://copytiao.netlify.app)
 
+> [!IMPORTANT]
+>
+> 由于邮件服务器暴毙，导致目前无法通过邮件发送站内通知
+> 因此可能看不到友链申请，你可以在 GitHub 开 Issue 让我知道你要交换友链，谢谢！
+
+
 欢迎各位大佬互投友链（仅限新站）。
 
 ## 如何联系到我
