@@ -71,7 +71,7 @@ Tauri / Avalonia
 
 ## 如何联系到我
 
-你可以直接在 Issue 页面直接[创建 Issue](https://github.com/LinQingYuu/LinQingYuu/issues/new) 和我交流。
+你可以直接在 Issue 页面直接[创建 Issue](https://github.com/RyogiMutsuki/RyogiMutskui/issues/new) 和我交流。
 
 > [!WARNING]
 >
