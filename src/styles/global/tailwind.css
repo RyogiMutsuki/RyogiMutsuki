@@ -40,7 +40,11 @@
   h5,
   h6 {
     font-family: "寒蝉全圆体", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
   }
 
   /* Japanese pages: use Gen Jyuu Gothic P for correct JIS glyphs (fix #113) */
@@ -56,6 +60,12 @@
     scrollbar-gutter: stable;
     background: linear-gradient(to top, var(--gradient-bg-end) 0, var(--gradient-bg-start) 30%) no-repeat bottom;
     overflow: auto;
+  }
+
+  @media (992px >= width) {
+    html {
+      scrollbar-gutter: auto;
+    }
   }
 
   .vertical-scrollbar::-webkit-scrollbar {

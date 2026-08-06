@@ -11,9 +11,9 @@ import { getPostLocale, getPostSlug } from './locale';
 import { getPostDescriptionWithSummary, getPostLastCategory, getPostReadingTime } from './posts';
 
 /**
- * BlogPost 可提取的字段映射
- * - 直接字段：从 post.slug 或 post.data.xxx 直接取
- * - 计算字段：需要调用函数计算
+ * Fields that can be extracted from BlogPost.
+ * - Direct fields come from post.id or post.data.
+ * - Computed fields require a helper function.
  */
 export type PostFieldMap = {
   // 直接字段
@@ -121,11 +121,13 @@ export const toPostRefWithCategory = (post: BlogPost) => pickPost(post, POST_REF
 
 /**
  * 转换为卡片数据（卡片展示所需字段）
+ * @deprecated Use `pickPost(post, fields, locale)` to request only the needed fields.
  */
 export const toPostCardData = (post: BlogPost, locale: string = defaultLocale) => pickPost(post, POST_CARD_DATA_KEYS, locale);
 
 // 批量转换便捷函数
 export const toPostRefs = (posts: BlogPost[]) => pickPosts(posts, POST_REF_KEYS);
+/** @deprecated Use `pickPosts(posts, fields)` to request only the needed fields. */
 export const toPostRefsWithCategory = (posts: BlogPost[]) => pickPosts(posts, POST_REF_WITH_CATEGORY_KEYS);
 export const toPostCardDataList = (posts: BlogPost[], locale: string = defaultLocale) =>
   pickPosts(posts, POST_CARD_DATA_KEYS, locale);

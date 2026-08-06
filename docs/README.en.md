@@ -34,7 +34,7 @@ You can provide [feedback](https://cos.featurebase.app/) and check the Roadmap h
 
 ## Deployment
 
-Supports automatic deployment on mainstream platforms including **Vercel** and **Netlify**. The adapter is automatically selected based on the environment; unrecognized platforms fall back to the Node.js adapter (suitable for Docker or self-hosting).
+Uses Astro's static output by default. **Vercel** and **Netlify** can publish the generated `dist/` directory directly; for self-hosting, serve `dist/` with a static server. The included Docker setup uses nginx.
 
 ### One-Click Deploy
 
@@ -56,7 +56,12 @@ To run Compose manually from the repository root:
 docker compose --env-file ./.env -f docker/docker-compose.yml up -d --build
 ```
 
+When Moments is enabled, use `pnpm docker:up:dynamic` instead. The feature is off by default; see the
+[Moments guide](./features/moments.en.md) and [deployment architecture](./overview/11-deployment-adapters.md).
+
 ### Local Development
+
+Before you begin, install Node.js 22.20.0 or later and pnpm 10.28.2.
 
 1. Clone the project
 
@@ -79,7 +84,7 @@ pnpm dev
 
 ## Features
 
-- Built on Astro 5.x with static site generation and excellent performance
+- Built on Astro 7.x with static site generation and excellent performance
 - Elegant dark/light theme toggle
 - Serverless full-site search powered by Pagefind
 - **Swappable comment systems**: Supports Waline (recommended), Giscus, Remark42, and Twikoo — one-click switch in config, theme auto-follows
@@ -90,6 +95,7 @@ pnpm dev
 - [Toggleable] Multi-series article support (weekly digest, book notes, etc. with custom URL slugs)
   > **Note**: featuredSeries is designed for categories with many articles, separating them from the homepage main list to avoid clutter. Only the latest article in a series is highlighted on the homepage; the rest are accessed through the series' dedicated page, while still appearing normally in archive, category, and tag pages.
 - [Toggleable] **Bangumi Page**: Integrates [Bangumi API](https://bgm.tv) to display anime/book/music/game collections with category tabs, status filters, and pagination — data fetched in real-time
+- [Toggleable] **Moments archive**: Reads public channel messages from koharu-suite with channel/detail pages, search, cursor pagination, and branded RSS. The default static deployment remains unchanged; see the [Moments guide](./features/moments.en.md)
 - **Standalone page system**: Create `.md` files under `src/pages/` to add custom pages (about, playlists, etc.) with custom cover titles and comment toggles
 - Responsive design
 - Draft and pinned post support
@@ -118,6 +124,7 @@ pnpm koharu new          # Create new content (post/friend link)
 pnpm koharu backup       # Backup blog content and config
 pnpm koharu restore      # Restore from backup
 pnpm koharu update       # Update theme
+pnpm koharu migrate      # Migrate legacy post data in one step
 pnpm koharu generate     # Generate content assets (LQIP, similarity, AI summaries)
 pnpm koharu clean        # Clean old backups
 pnpm koharu list         # List all backups
@@ -167,6 +174,22 @@ pnpm koharu restore --latest
 # Preview files to be restored (dry run)
 pnpm koharu restore --dry-run
 ```
+
+### Migrating Legacy Content
+
+After upgrading to Astro 6 or restoring an old backup, migrate post links before running `pnpm dev` or `pnpm build`.
+When upgrading from an older release, wait for the old `pnpm koharu update` process to exit completely, then run:
+
+```bash
+pnpm koharu migrate --dry-run
+pnpm koharu migrate
+```
+
+The command creates a basic backup first, preserves existing `link` values, safely converts legacy `slug` fields to
+`link`, and adds a stable link when both fields are missing. It is idempotent and stops without modifying files when it
+finds duplicate links or unsafe frontmatter. Restoring an old backup through the Koharu CLI runs the same migration
+automatically.
+`pnpm dev` and `pnpm build` also run a read-only check first, stopping with these instructions when migration is pending.
 
 ### Updating the Theme
 
@@ -330,7 +353,7 @@ comment:
 | -------------------------------------------- | ---------- | --------------------------------------------------------------- | --------------------------------------- |
 | **[Cosine's Blog](http://blog.cosine.ren/)** | **cosine** | [cosZone/astro-koharu](https://github.com/cosZone/astro-koharu) | This theme                              |
 | [XueHua's Blog](https://xhblog.top/)         | XueHua-s   | [XueHua-s/astro-snow](https://github.com/XueHua-s/astro-snow)   | Simplified features, added a start page |
-| [Ksable's Blog](https://blog.ksable.top/)    | Ksable     | -                                                               | Modified / added some features          |
+| [Ksable's Blog](https://blog.ksable.top/)    | Ksable     | [God-2077/astro-blog](https://github.com/God-2077/astro-blog) | Modified / added some features          |
 
 ## Acknowledgements
 

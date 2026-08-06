@@ -39,7 +39,6 @@ const strippedPath = stripLocaleFromPath(Astro.url.pathname);
 <div class={cn('flex flex-col items-center md:py-2', className)} data-home-info-container={uniqueId}>
   <div class="relative h-40 w-40 rounded-full" style={getLqipStyle(siteConfig.avatar ?? '/img/avatar.webp')}>
     <img
-      transition:persist="page-home-info-avatar"
       class="shadow-card-darker hover:animate-shake h-full w-full rounded-full transition"
       src={siteConfig.avatar ?? '/img/avatar.webp'}
       alt={`${siteConfig.name ?? ''} avatar`}
@@ -102,7 +101,11 @@ const strippedPath = stripLocaleFromPath(Astro.url.pathname);
                 <div class="flex flex-col items-center">
                   {item.children.map((child) => {
                     const childName = resolveNavName(child.nameKey, child.name, locale);
-                    const childUrl = child.path ? localizedPath(child.path, locale) : child.path;
+                    const childUrl = child.path
+                      ? child.localeIndependent
+                        ? child.path
+                        : localizedPath(child.path, locale)
+                      : child.path;
                     return (
                       <ButtonLink
                         url={childUrl}
@@ -123,7 +126,7 @@ const strippedPath = stripLocaleFromPath(Astro.url.pathname);
             </div>
           );
         }
-        const itemUrl = item.path ? localizedPath(item.path, locale) : item.path;
+        const itemUrl = item.path ? (item.localeIndependent ? item.path : localizedPath(item.path, locale)) : item.path;
         return (
           <ButtonLink
             url={itemUrl}

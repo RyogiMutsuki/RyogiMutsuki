@@ -54,10 +54,11 @@ markdown: {
 
 ### Content Collections 配置
 
-博客文章使用 Astro Content Collections 管理，Schema 定义在 `src/content/config.ts:4-21`：
+博客文章使用 Astro Content Collections 管理，loader 与 Schema 定义在 `src/content.config.ts`：
 
 ```typescript
 const blogCollection = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),                       // 文章标题
     description: z.string().optional(),      // 描述
@@ -244,14 +245,15 @@ interface ContentConfig {
 }
 ```
 
-默认配置（`src/constants/content-config.ts:8-11`）：
+配置来源是 `config/site.yaml` 的 `content:` 段：
 
-```typescript
-export const defaultContentConfig: ContentConfig = {
-  addBlankTarget: true,
-  smoothScroll: true,
-};
+```yaml
+content:
+  addBlankTarget: true # 外部链接新窗口打开
+  smoothScroll: true # 平滑滚动
 ```
+
+默认值与校验逻辑由 `src/lib/config/content.ts` 的 `normalizeContentConfig()` 统一维护（`CONTENT_DEFAULTS`），`content:` 段可以只写需要覆盖的字段。`src/constants/content-config.ts` 只是对 `@lib/config/site` 的再导出，直接修改它不会生效；修改 `config/site.yaml` 后需要重启 dev server 或重新构建。
 
 #### 功能实现
 
@@ -495,7 +497,7 @@ const jsonLd = {
 
 - `astro.config.mjs:15-37` - Markdown 主配置
 - `tailwind.config.mjs:138` - Typography 插件
-- `src/content/config.ts` - Content Collections Schema
+- `src/content.config.ts` - Content Collections loader 与 Schema
 
 **样式文件：**
 
@@ -513,9 +515,10 @@ const jsonLd = {
 
 - `src/pages/post/[...slug].astro` - 文章详情页模板
 
-**常量配置：**
+**配置文件：**
 
-- `src/constants/content-config.ts` - 内容增强配置
+- `config/site.yaml` - 内容增强配置（`content:` 段，唯一配置入口）
+- `src/lib/config/content.ts` - `content:` 段的默认值与归一化逻辑
 
 ## 总结
 
