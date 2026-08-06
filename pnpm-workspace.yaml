@@ -1,2 +1,9 @@
 packages:
-  - '.'
+  - .
+
+onlyBuiltDependencies:
+  - esbuild
+  - onnxruntime-node
+  - protobufjs
+  - re2
+  - sharp
