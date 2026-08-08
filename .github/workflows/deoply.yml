@@ -27,6 +27,9 @@ jobs:
       - name: "Checkout code"
         uses: "actions/checkout@v7.0.0"
 
+      - name: "Change working directory"
+        run: cd blogs
+
       - name: "Setup pnpm"
         uses: pnpm/action-setup@v6.0.2
 
