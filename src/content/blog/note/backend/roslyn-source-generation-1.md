@@ -1,4 +1,5 @@
 ---
+link: 'note/backend/roslyn-source-generation-1'
 title: C# 开发笔记：初识源生成器
 date: 2026-06-30 12:50:42
 updated: 2026-06-30 13:09:26
