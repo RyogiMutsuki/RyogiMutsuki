@@ -250,12 +250,30 @@ friends:
       desc: FE / ACG / 手工 / 深色模式强迫症 / INFP / 兴趣广泛养两只猫的老宅女 / remote
       image: https://blog.cosine.ren/img/avatar.webp
       color: '#ed788b'
-    - site: 薄奚梦灵的小窝
-      url: https://copytiao.netlify.app
-      owner: 薄奚梦灵
-      desc: 华丽下暗藏的生活琐事
-      image: https://copytiao.netlify.app/assets/img/boximengling.png
-      color: '#66ccff'
+    - site: 流年如鸽
+      url: https://itspigeon.xin
+      owner: 鸽秋
+      desc: Live a life you will remember.
+      image: https://img.z4a.net/images/2025/03/22/pigeon-avatar.png
+      color: “#FFA565”
+    - site: 盐林格勒 | Saltlingrad
+      url: https://ski.ink
+      owner: SALTWOOD
+      desc: 卷土重来未可知。——杜牧《题乌江亭》
+      image: https://avatar.ski.ink
+      color: “#d9a441”
+    - site: Hill233的小窝
+      url: https://suki.ink
+      owner: Hill233
+      desc: 只是一个普普通通的 blog 罢了
+      image: https://suki.ink/upload/avatar.webp
+      color: “#cc7a00”
+    - site: 晓雨杂记
+      url: https://www.notbigcake.net
+      owner: Big_Cake
+      desc: 也许我们会分别，但我们将永远不会忘记彼此
+      image: https://objects.notbigcake.net/bigcake-blog-images/brand/avatar-128x.webp
+      color: “#f2bc57”
 
 # =============================================================================
 # Announcements
