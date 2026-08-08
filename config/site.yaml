@@ -255,30 +255,30 @@ friends:
       owner: 鸽秋
       desc: Live a life you will remember.
       image: https://img.z4a.net/images/2025/03/22/pigeon-avatar.png
-      color: “#FFA565”
+      color: "#FFA565"
     - site: 盐林格勒 | Saltlingrad
       url: https://ski.ink
       owner: SALTWOOD
       desc: 卷土重来未可知。——杜牧《题乌江亭》
       image: https://avatar.ski.ink
-      color: “#d9a441”
+      color: "#d9a441"
     - site: Hill233的小窝
       url: https://suki.ink
       owner: Hill233
       desc: 只是一个普普通通的 blog 罢了
       image: https://suki.ink/upload/avatar.webp
-      color: “#cc7a00”
+      color: "#cc7a00"
     - site: 晓雨杂记
       url: https://www.notbigcake.net
       owner: Big_Cake
       desc: 也许我们会分别，但我们将永远不会忘记彼此
       image: https://objects.notbigcake.net/bigcake-blog-images/brand/avatar-128x.webp
-      color: “#f2bc57”
+      color: "#f2bc57"
     - site: 天天的糖果屋 # 站点名称
       url: https://blog.rqwq.link # 站点网址
       owner: ruattd # 昵称
       desc: Walk softly through the world. # 站点简介 (不要忘了句号哦)
-      image: https://blog.rqwq.link/img/avatar.webp # 头像链接
+      image: https://blog.rqwq.link/img/avatafixr.webp # 头像链接
       color: "#ffc0cb" # 主题色
 
 # =============================================================================
