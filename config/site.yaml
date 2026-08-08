@@ -274,12 +274,12 @@ friends:
       desc: 也许我们会分别，但我们将永远不会忘记彼此
       image: https://objects.notbigcake.net/bigcake-blog-images/brand/avatar-128x.webp
       color: "#f2bc57"
-    - site: 天天的糖果屋 # 站点名称
-      url: https://blog.rqwq.link # 站点网址
-      owner: ruattd # 昵称
-      desc: Walk softly through the world. # 站点简介 (不要忘了句号哦)
-      image: https://blog.rqwq.link/img/avatafixr.webp # 头像链接
-      color: "#ffc0cb" # 主题色
+    - site: 天天的糖果屋
+      url: https://blog.rqwq.link
+      owner: ruattd
+      desc: Walk softly through the world. 
+      image: https://blog.rqwq.link/img/avatafixr.webp 
+      color: "#ffc0cb"
 
 # =============================================================================
 # Announcements
