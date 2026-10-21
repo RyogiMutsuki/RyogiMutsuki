@@ -185,7 +185,7 @@ social:
     icon: ri:github-fill # Remix Icon 的 GitHub 图标
     color: '#191717' # (可选) 图标颜色
   email:
-    url: mailto:copytiao@20260712.xyz # 替换为你的邮箱，需加 mailto: 前缀
+    url: mailto:tsukishiromei@20260712.xyz # 替换为你的邮箱，需加 mailto: 前缀
     icon: ri:mail-line
     color: '#66ccff'
   rss:
@@ -280,6 +280,13 @@ friends:
       desc: Walk softly through the world. # 站点简介 (不要忘了句号哦)
       image: https://blog.rqwq.link/img/avatar.webp # 头像链接
       color: "#ffc0cb" # 主题色
+    - site: 饿师傅的技术札记
+      url: https://hungryluo.top/
+      owner: 锦依卫-饿魔
+      desc: 锦依卫-饿魔的个人博客，一个分享折腾日常的温馨小窝awa～
+      image: https://hungryluo.top/usr/uploads/avatar.png
+      color: "#66ccff"
+    
 
 # =============================================================================
 # Announcements
