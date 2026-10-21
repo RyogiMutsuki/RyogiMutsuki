@@ -286,6 +286,12 @@ friends:
       desc: 锦依卫-饿魔的个人博客，一个分享折腾日常的温馨小窝awa～
       image: https://hungryluo.top/usr/uploads/avatar.png
       color: "#66ccff"
+    - site: 梅之夏
+      url: https://blog.mcenahle.page/
+      owner: mcenahle
+      desc: Explore. Dream. Discover.
+      image: https://blog.mcenahle.page/img/icon.png
+      color: "#84ace3"
     
 
 # =============================================================================
