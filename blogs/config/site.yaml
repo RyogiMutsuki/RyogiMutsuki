@@ -292,7 +292,13 @@ friends:
       desc: Explore. Dream. Discover.
       image: https://blog.mcenahle.page/img/icon.png
       color: "#84ace3"
-    
+    - site: Hyj的小站
+      url: https://www.hyj120309.top
+      owner: hyj120309
+      desc: 一个貌似没啥用的blog
+      image: https://www.hyj120309.top/images/h.svg
+      color: “#66ccff”
+          
 
 # =============================================================================
 # Announcements
