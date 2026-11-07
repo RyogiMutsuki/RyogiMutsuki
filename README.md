@@ -4,7 +4,7 @@
 
 > 愿初心不改，愿热爱长存
 
-选修物化地高三生。
+选修物化地的小魔女一枚。
 
 半全栈开发，懂一点前端。
 
@@ -23,6 +23,8 @@ CSharp | Rust | TypeScript | Go | Kotlin | Java | Vue
 Tauri | Avalonia | MAUI | Electron | Wails
 
 ## 找到我
+
+[QQ 群 - 魔女茶话会](https://qm.qq.com/q/299kCd5O7m)
 
 Email: tsukishiromei@20260712.xyz
 
