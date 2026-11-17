@@ -14,12 +14,12 @@
 site:
   title: RyogiMutsuki 的小窝 # 网站名称
   alternate: LuoTianyi # 网站英文名称 用于页脚、Logo、@ handle 等
-  subtitle: 或许 七月初七 淮水竹亭 只是能是一场泡影 # 网站副标题
+  subtitle: 千秋万岁名，寂寞身后事。 # 网站副标题
   name: RyogiMutsuki # 作者名称 - 请修改为你的名字
-  description: 黑夜给了我黑色的眼睛，我却用它来寻找星星 # 网站描述
+  description: 愿初心不改，愿热爱长存。 # 网站描述
   avatar: /img/avatar.webp # 网站头像
   showLogo: false # 是否显示 Logo
-  author: Author # 作者名称 - 请修改为你的名字
+  author: RyogiMutsuki # 作者名称 - 请修改为你的名字
   url: https://www.20260712.xyz # 站点 URL 用于 RSS 和 SEO
   defaultOgImage: /img/avatar.webp # 默认 Open Graph 图片
   startYear: 2026 # 建站年份
